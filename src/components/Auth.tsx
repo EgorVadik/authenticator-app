@@ -29,7 +29,7 @@ export default function Auth({ isLogin = false }: Props) {
             const res = await signIn('credentials', {
                 email: data.email,
                 password: data.password,
-                redirect: false,
+                redirect: true,
             })
 
             if (res?.error === 'Invalid Email') {
@@ -46,7 +46,6 @@ export default function Auth({ isLogin = false }: Props) {
                     title: 'Invalid Password',
                     description: 'Please try again',
                 })
-
                 setLoading(false)
                 return
             }
